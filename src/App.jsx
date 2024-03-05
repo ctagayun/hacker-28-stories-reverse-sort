@@ -549,10 +549,17 @@ const List = ({ list, onRemoveItem }) => {
  
   //To handle reverse for modify handleSort
   const handleSort = (sortKey) => {
-    const isReverse = sort.sortKey === sortKey && !sort.isReverse;
-    setSort({ sortKey: sortKey, isReverse: isReverse }); //Update the state object
+  
+   //Determine if isReverse is going to be true or false
+   const isReverse = sort.sortKey === sortKey && !sort.isReverse;
+   // setSort({ sortKey: sortKey, isReverse: isReverse }); //Update the state object
                                             //Again the state is an object
                                             //because it has two properties
+   //Let's modify setSort to use "shorthand" object initializer notation
+   //When the property name e.g "sortKey" is same as your variable
+   //name "sortKey" you can omit K/V pair as above (line 553)
+   setSort({sortKey, isReverse});
+
   };
  
   /*
